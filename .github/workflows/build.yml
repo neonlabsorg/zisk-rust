@@ -54,7 +54,7 @@ jobs:
         with:
           repository: 0xPolygonHermez/zisk
           token: ${{ secrets.GITHUB_TOKEN }}
-          ref: main
+          ref: fix/build-toolchain
           path: zisk
 
       - name: Check out 0xPolygonHermez/rust
