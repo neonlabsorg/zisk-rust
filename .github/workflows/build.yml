@@ -65,6 +65,7 @@ jobs:
           fetch-depth: 0
 
       - name: Prepare TMPDIR for gha
+        if: matrix.os == 'ubuntu-22.04'
         run: |
           set -euxo pipefail
           TMP_DIR=/tmp/gha
