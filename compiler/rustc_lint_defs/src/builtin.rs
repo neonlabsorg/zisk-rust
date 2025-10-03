@@ -3001,7 +3001,7 @@ declare_lint! {
     /// the appropriate `rustc` flag that controls the config. For example setting the `windows`
     /// cfg but on Linux based target.
     pub EXPLICIT_BUILTIN_CFGS_IN_FLAGS,
-    Deny,
+    Allow,
     "detects builtin cfgs set via the `--cfg`"
 }
 

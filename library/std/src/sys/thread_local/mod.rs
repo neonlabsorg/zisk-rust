@@ -28,6 +28,7 @@ cfg_if::cfg_if! {
         all(target_family = "wasm", not(target_feature = "atomics")),
         target_os = "uefi",
         target_os = "zkvm",
+        target_os = "solana",
         target_os = "trusty",
     ))] {
         mod no_threads;
@@ -92,6 +93,7 @@ pub(crate) mod guard {
             )),
             target_os = "uefi",
             target_os = "zkvm",
+            target_os = "solana",
             target_os = "trusty",
         ))] {
             pub(crate) fn enable() {

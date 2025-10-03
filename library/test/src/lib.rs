@@ -565,7 +565,7 @@ pub fn run_test(
 
     // Emscripten can catch panics but other wasm targets cannot
     let ignore_because_no_process_support = desc.should_panic != ShouldPanic::No
-        && (cfg!(target_family = "wasm") || cfg!(target_os = "zkvm"))
+        && (cfg!(target_family = "wasm") || cfg!(target_os = "zkvm") || cfg!(target_os = "solana"))
         && !cfg!(target_os = "emscripten");
 
     if force_ignore || desc.ignore || ignore_because_no_process_support {
@@ -614,7 +614,8 @@ pub fn run_test(
             // level.
             let supports_threads = !cfg!(target_os = "emscripten")
                 && !cfg!(target_family = "wasm")
-                && !cfg!(target_os = "zkvm");
+                && !cfg!(target_os = "zkvm")
+                && !cfg!(target_os = "solana");
             if supports_threads {
                 let cfg = thread::Builder::new().name(name.as_slice().to_owned());
                 let mut runtest = Arc::new(Mutex::new(Some(runtest)));

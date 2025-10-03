@@ -31,7 +31,7 @@ cfg_if::cfg_if! {
     } else if #[cfg(target_os = "xous")] {
         mod xous;
         pub use xous::*;
-    } else if #[cfg(target_os = "zkvm")] {
+    } else if #[cfg(any(target_os = "zkvm", target_os = "solana"))] {
         mod zkvm;
         pub use zkvm::*;
     } else {

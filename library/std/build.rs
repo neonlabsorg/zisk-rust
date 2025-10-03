@@ -49,6 +49,7 @@ fn main() {
         || target_os == "uefi"
         || target_os == "teeos"
         || target_os == "zkvm"
+        || target_os == "solana"
         || target_os == "rtems"
         || target_os == "nuttx"
         || target_os == "cygwin"

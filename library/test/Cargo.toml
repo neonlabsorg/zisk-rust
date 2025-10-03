@@ -17,4 +17,5 @@ libc = { version = "0.2.150", default-features = false }
 level = "warn"
 check-cfg = [
     'cfg(target_vendor, values("zisk"))',
+    'cfg(target_os, values("solana"))',
 ]
