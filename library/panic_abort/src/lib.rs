@@ -16,7 +16,7 @@
 #[cfg(target_os = "android")]
 mod android;
 
-#[cfg(all(or(target_os = "zkvm", target_os = "solana"), not(target_vendor = "zisk")))]
+#[cfg(all(any(target_os = "zkvm", target_os = "solana"), not(target_vendor = "zisk")))]
 mod zkvm;
 
 use core::any::Any;
@@ -36,7 +36,7 @@ pub unsafe fn __rust_start_panic(_payload: &mut dyn PanicPayload) -> u32 {
     unsafe {
         android::android_set_abort_message(_payload);
     }
-    #[cfg(all(or(target_os = "zkvm", target_os = "solana"), not(target_vendor = "zisk")))]
+    #[cfg(all(any(target_os = "zkvm", target_os = "solana"), not(target_vendor = "zisk")))]
     unsafe {
         zkvm::zkvm_set_abort_message(_payload);
     }
