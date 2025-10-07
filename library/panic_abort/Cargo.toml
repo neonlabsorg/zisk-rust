@@ -25,4 +25,5 @@ alloc = { path = "../alloc" }
 level = "warn"
 check-cfg = [
     'cfg(target_vendor, values("zisk"))',
+    'cfg(target_os, values("solana"))',
 ]
